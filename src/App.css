@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 10vmin;
   pointer-events: none;
 }
 
@@ -36,3 +36,46 @@
     transform: rotate(360deg);
   }
 }
+.delete, .edit{
+  margin-left: 15px;
+  height: 25px;
+  background-color: gold;
+  color: black;
+}
+.title {
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.todo-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.todo-table th,
+.todo-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.edit-btn,
+.delete-btn,
+.update-btn,
+.add-btn {
+  padding: 5px 10px;
+  margin-left: 5px;
+  border-radius: 4px;
+  background-color: #61dafb;
+  color: #000;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-btn:hover,
+.delete-btn:hover,
+.update-btn:hover,
+.add-btn:hover {
+  background-color: #555;
+}
+
