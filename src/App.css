@@ -36,46 +36,41 @@
     transform: rotate(360deg);
   }
 }
-.delete, .edit{
-  margin-left: 15px;
-  height: 25px;
-  background-color: gold;
-  color: black;
-}
-.title {
-  font-size: 50px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.todo-table {
+.device-table table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.todo-table th,
-.todo-table td {
-  border: 1px solid #ccc;
+.device-table th, .device-table td {
   padding: 8px;
+  border: 1px solid black;
 }
 
+.device-table th {
+  background-color: gold;
+  color: black;
+  font-weight: bold;
+}
+.update-btn,
+.add-btn,
 .edit-btn,
 .delete-btn,
-.update-btn,
-.add-btn {
-  padding: 5px 10px;
+.cancel-btn,
+.cancel-delete-btn,
+.confirm-delete-btn {
+    margin-left: 15px;
+    height: 30px;
+    background-color: gold;
+    color: black;
+    border: 1px solid black;
+}
+.input-ten,
+.input-loai,
+.input-vitri,
+.input-hang{
   margin-left: 5px;
-  border-radius: 4px;
-  background-color: #61dafb;
-  color: #000;
-  border: none;
-  cursor: pointer;
+  height: 25px;
 }
-
-.edit-btn:hover,
-.delete-btn:hover,
-.update-btn:hover,
-.add-btn:hover {
-  background-color: #555;
+.form-nhap{
+  margin-bottom: 15px;
 }
-
