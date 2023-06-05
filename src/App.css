@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #c8c8c8;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,42 +35,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-.device-table table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.device-table th, .device-table td {
-  padding: 8px;
-  border: 1px solid black;
-}
-
-.device-table th {
-  background-color: gold;
-  color: black;
-  font-weight: bold;
-}
-.update-btn,
-.add-btn,
-.edit-btn,
-.delete-btn,
-.cancel-btn,
-.cancel-delete-btn,
-.confirm-delete-btn {
-    margin-left: 15px;
-    height: 30px;
-    background-color: gold;
-    color: black;
-    border: 1px solid black;
-}
-.input-ten,
-.input-loai,
-.input-vitri,
-.input-hang{
-  margin-left: 5px;
-  height: 25px;
-}
-.form-nhap{
-  margin-bottom: 15px;
 }

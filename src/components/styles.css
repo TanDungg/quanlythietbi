@@ -1,0 +1,144 @@
+.add-btn-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+  }
+  .add-form{
+    background-color: white;
+    padding: 20px;
+    border-radius: 6px;
+    color: #585858;
+    font-size: 13px;
+  }
+  .add-btn {
+    width: 120px;
+  }
+  
+  .device-details {
+    font-size: 13px;
+  }
+  
+  .device-details-table {
+    width: 100%;
+  }
+  
+  .device-details-table th,
+  .device-details-table td {
+    padding: 8px;
+    border: 1px solid #c8c8c8;
+  }
+  
+  .device-details-table th {
+    background-color: #3da4e6;
+    color: white;
+    text-align: center;
+  }
+  
+  .device-details-table td {
+    color: #545454;
+  }
+  
+  .device-details-table .icon-btn {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .device-details-table .edit-icon,
+  .device-details-table .delete-icon,
+  .device-details-table .yes-icon,
+  .device-details-table .no-icon {
+    width: 1em;
+    height: 1em;
+    margin: 0px 5px;
+  }
+  
+  .device-details-table .edit-icon {
+    color: blue;
+  }
+  
+  .device-details-table .delete-icon {
+    color: red;
+  }
+  
+  .device-details-table .yes-icon {
+    color: green;
+  }
+  
+  .device-details-table .no-icon {
+    color: red;
+  }
+  
+  .device-details-table .tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  .device-main{
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100vh;
+    margin-top: 10px;
+  }
+  .add-device-form,
+  .edit-device-form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100vh;
+  }
+  
+  .form-title {
+    font-size: 25px;
+    font-weight: bold;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #585858;
+    text-transform: uppercase;
+  }
+  
+  
+  .input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .input-container label {
+    margin-right: 20px;
+    width: 100px;
+  }
+  
+  .input-container input {
+    flex: 1;
+    border-radius: 6px;
+    height: 30px;
+    border: 1px solid #c8c8c8;
+  }
+  
+  .label {
+    text-align: right;
+    margin-right: 8px;
+  }  
+  .error-input {
+    border: 1px solid red !important;
+  }  
+  .error-message {
+    color: red;
+    margin-bottom: 15px;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+  }
+  
+  .add-btn {
+    margin-left: 8px;
+  }
+  

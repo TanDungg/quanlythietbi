@@ -1,11 +1,39 @@
 import React, { useState } from "react";
 import AddDeviceForm from "./AddDeviceForm";
 import EditDeviceForm from "./EditDeviceForm";
+import {
+    PlusOutlined,
+    DeleteOutlined,
+    EditOutlined,
+    CloseOutlined,
+    CheckOutlined,
+} from "@ant-design/icons";
+import { Button } from "antd";
+import "./styles.css";
 
 const MyComponent = () => {
     const [listDevices, setListDevices] = useState([
-        { id: 1, name: "Thiết bị 1", type: "Loại 1", location: "Vị trí 1", brand: "Hãng 1" },
-        { id: 2, name: "Thiết bị 2", type: "Loại 2", location: "Vị trí 2", brand: "Hãng 2" }
+        {
+            id: 1,
+            name: "Máy tính bàn",
+            type: "PC",
+            location: "Phòng CNTT",
+            brand: "DELL",
+        },
+        {
+            id: 2,
+            name: "Laptop Dell",
+            type: "Laptop",
+            location: "Phòng CNTT",
+            brand: "DELL",
+        },
+        {
+            id: 3,
+            name: "Laptop HP",
+            type: "Laptop",
+            location: "Nhà máy khuôn",
+            brand: "HP",
+        },
     ]);
     const [editMode, setEditMode] = useState(false);
     const [editDevice, setEditDevice] = useState(null);
@@ -14,7 +42,8 @@ const MyComponent = () => {
     const [showAddForm, setShowAddForm] = useState(false);
 
     const handleAddDevice = (device) => {
-        const newId = listDevices.length > 0 ? listDevices[listDevices.length - 1].id + 1 : 1;
+        const newId =
+            listDevices.length > 0 ? listDevices[listDevices.length - 1].id + 1 : 1;
         const newDevice = { id: newId, ...device };
         setListDevices([...listDevices, newDevice]);
         setShowAddForm(false);
@@ -36,14 +65,15 @@ const MyComponent = () => {
         setEditMode(false);
         setEditDevice(null);
     };
-
     const handleDeleteDevice = (device) => {
         setDeleteMode(true);
         setDeleteDevice(device);
     };
 
     const handleConfirmDelete = () => {
-        const updatedDevices = listDevices.filter((device) => device.id !== deleteDevice.id);
+        const updatedDevices = listDevices.filter(
+            (device) => device.id !== deleteDevice.id
+        );
         setListDevices(updatedDevices);
         setDeleteMode(false);
         setDeleteDevice(null);
@@ -60,29 +90,39 @@ const MyComponent = () => {
     };
 
     return (
-        <div>
-            <div>QUẢN LÝ THIẾT BỊ</div>
-            {editMode ? (
-                <EditDeviceForm
-                    device={editDevice}
-                    handleUpdateDevice={handleUpdateDevice}
-                    handleCancelUpdate={handleCancelUpdate}
-                />
-            ) : (
-                <>
-                    {showAddForm && (
-                        <AddDeviceForm handleAddDevice={handleAddDevice} handleCancel={() => setShowAddForm(false)} />
-                    )}
-                    {!showAddForm && (
-                        <button className="add-btn" onClick={() => setShowAddForm(true)}>
-                            Thêm
-                        </button>
-                    )}
-                </>
-            )}
-            <div className="device-table">
-                <table>
-                    <thead>
+        <main className="device-main">
+            <div className="add-btn-container">
+                {editMode ? (
+                    <EditDeviceForm
+                        device={editDevice}
+                        handleUpdateDevice={handleUpdateDevice}
+                        handleCancelUpdate={handleCancelUpdate}
+                    />
+                ) : (
+                    <>
+                        {!showAddForm ? (
+                            <div className="add-btn-container">
+                                <Button
+                                    type="primary"
+                                    icon={<PlusOutlined />}
+                                    onClick={() => setShowAddForm(true)}
+                                    className="add-btn"
+                                >
+                                    Thêm mới
+                                </Button>
+                            </div>
+                        ) : (
+                            <AddDeviceForm
+                                handleAddDevice={handleAddDevice}
+                                handleCancel={() => setShowAddForm(false)}
+                            />
+                        )}
+                    </>
+                )}
+            </div>
+            <div className="device-details">
+                <table className="device-details-table">
+                    <thead className="thead">
                         <tr>
                             <th>ID</th>
                             <th>Tên thiết bị</th>
@@ -92,7 +132,7 @@ const MyComponent = () => {
                             <th>Hành động</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="tbody">
                         {listDevices.map((device) => (
                             <tr key={device.id}>
                                 <td>{device.id}</td>
@@ -100,24 +140,44 @@ const MyComponent = () => {
                                 <td>{device.type}</td>
                                 <td>{device.location}</td>
                                 <td>{device.brand}</td>
-                                <td>
-                                    {deleteMode && deleteDevice && deleteDevice.id === device.id ? (
+                                <td className="icon-btn">
+                                    {deleteMode &&
+                                        deleteDevice &&
+                                        deleteDevice.id === device.id ? (
                                         <>
-                                            <button className="confirm-delete-btn" onClick={handleConfirmDelete}>
-                                                Xác nhận
-                                            </button>
-                                            <button className="cancel-delete-btn" onClick={handleCancelDelete}>
-                                                Hủy
-                                            </button>
+                                            {
+                                                <CheckOutlined
+                                                    style={{ color: "green" }}
+                                                    onClick={handleConfirmDelete}
+                                                    className="yes-icon"
+                                                />
+                                            }
+                                            |
+                                            {
+                                                <CloseOutlined
+                                                    style={{ color: "red" }}
+                                                    onClick={handleCancelDelete}
+                                                    className="no-icon"
+                                                />
+                                            }
                                         </>
                                     ) : (
                                         <>
-                                            <button className="edit-btn" onClick={() => handleEditDevice(device)}>
-                                                Sửa
-                                            </button>
-                                            <button className="delete-btn" onClick={() => handleDeleteDevice(device)}>
-                                                Xóa
-                                            </button>
+                                            {
+                                                <EditOutlined
+                                                    style={{ color: "blue" }}
+                                                    onClick={() => handleEditDevice(device)}
+                                                    className="edit-icon"
+                                                />
+                                            }
+                                            |
+                                            {
+                                                <DeleteOutlined
+                                                    style={{ color: "red" }}
+                                                    onClick={() => handleDeleteDevice(device)}
+                                                    className="delete-icon"
+                                                />
+                                            }
                                         </>
                                     )}
                                 </td>
@@ -126,7 +186,7 @@ const MyComponent = () => {
                     </tbody>
                 </table>
             </div>
-        </div>
+        </main>
     );
 };
 
